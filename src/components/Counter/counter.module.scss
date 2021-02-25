@@ -1,0 +1,43 @@
+.container {
+  padding: 50px;
+  font-family: sans-serif;
+  margin: 0 auto;
+  max-width: 1000px;
+  border: 10px solid red;
+  background-color: dodgerblue;
+  min-height: 452px;
+}
+
+.header,
+.count {
+  font-size: 50px;
+}
+
+.count {
+  color: white;
+}
+
+.setting {
+  background-color: dodgerblue;
+  font-size: 30px;
+  color: yellow;
+  border: 0;
+  outline: none;
+}
+
+.bottom,
+.header,
+.count,
+.setting,
+.button {
+  margin-bottom: 20px;
+}
+
+.button {
+  background-color: violet;
+  border: 0;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  margin-right: 20px;
+}
