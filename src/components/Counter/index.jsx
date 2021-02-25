@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import styles from './counter.module.scss'
 
 class Counter extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       count: 0,
       isAdding: true,
-      value: '',
+      value: '1',
       valueClick: '',
       hidden: true,
       independentCount: 0
@@ -56,18 +56,19 @@ class Counter extends Component {
   autoClick = () => {
     const { count } = this.state
     console.log(count)
-    this.setState({
-      count: (this.count = setInterval(this.changeValue, 1000))
-      // if(valueClick){
-      //   this.setState ({
-      //     this.count = clearInterval(this.changeValue)
-      //   })
+    this.count = setInterval(this.changeValue, 1000)
+    // this.setState({
+    //   count: ()
+    // if(valueClick){
+    //   this.setState ({
+    //     this.count = clearInterval(this.changeValue)
+    //   })
 
-      // if (valueClick) {
-      //   this.setState({ count: (this.count = clearInterval(this.changeValue)) })
-      //   return
-      // }
-    })
+    // if (valueClick) {
+    //   this.setState({ count: (this.count = clearInterval(this.changeValue)) })
+    //   return
+    // }
+    // })
   }
 
   hidden = () => {
@@ -75,16 +76,16 @@ class Counter extends Component {
     this.setState({ hidden: !hidden })
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.independentCount = setTimeout(this.start, 1000)
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     this.clear()
     this.independentCount = setTimeout(this.start, 1000)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.clear()
   }
 
@@ -98,46 +99,50 @@ class Counter extends Component {
     this.independentCount = null
   }
 
-  render () {
+  render() {
     const { count, value, valueClick, hidden, independentCount } = this.state
     return (
       <article className={styles.container}>
         <h1 className={styles.header}>Вы изменяете значение на: {value} </h1>
         <p className={styles.count}>{count}</p>
-        <div>
-          <button className={styles.setting} onClick={this.hidden}>
-            Настройки счетчика (click me):
+        <div className={styles.block}>
+          <div>
+            <button className={styles.setting} onClick={this.hidden}>
+              Настройки счетчика (click me):
           </button>
-          <br />
-          <div hidden={hidden}>
-            <button onClick={this.changeValue} className={styles.button}>
-              изменить шаг
-            </button>
-            <input
-              id='text'
-              type='text'
-              name='quantity'
-              placeholder='шаг'
-              onChange={this.onSelectionChange}
-              className={styles.bottom}
-            ></input>
             <br />
-            <button onClick={this.changeMode} className={styles.button}>
-              изменить значение +/-
+            <div hidden={hidden}>
+              <button onClick={this.changeValue} className={styles.button}>
+                изменить шаг
             </button>
-            <br />
-            <button onClick={this.autoClick} className={styles.button}>
-              auto click {valueClick}
+              <input
+                id='text'
+                type='text'
+                name='quantity'
+                placeholder='шаг'
+                onChange={this.onSelectionChange}
+                className={styles.bottom}
+              ></input>
+              <br />
+              <button onClick={this.changeMode} className={styles.button}>
+                изменить значение +/-
             </button>
-            <input
-              type='text'
-              id='quantity'
-              placeholder='количество кликов'
-              onChange={this.quantityClicks}
-            ></input>
+              <br />
+              <button onClick={this.autoClick} className={styles.button}>
+                auto click {valueClick}
+              </button>
+              <input
+                type='text'
+                id='quantity'
+                placeholder='количество кликов'
+                onChange={this.quantityClicks}
+              ></input>
+            </div>
           </div>
-          <h1>Самостоятельный счетчик</h1>
-          <p>{independentCount}</p>
+          <div>
+            <h1 className={styles.setting}>Самостоятельный счетчик</h1>
+            <p className={styles.content}>{independentCount}</p>
+          </div>
         </div>
       </article>
     )

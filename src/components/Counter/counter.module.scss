@@ -9,12 +9,19 @@
 }
 
 .header,
-.count {
+.count,
+.content {
   font-size: 50px;
 }
 
-.count {
+.count,
+.content {
   color: white;
+}
+
+.block {
+  display: flex;
+  justify-content: space-between;
 }
 
 .setting {
@@ -40,4 +47,8 @@
   color: white;
   font-size: 20px;
   margin-right: 20px;
+}
+
+.content {
+  text-align: center;
 }
