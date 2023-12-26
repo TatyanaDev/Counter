@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.module.scss";
+import { StrictMode } from "react";
+import { render } from "react-dom";
 import "./reset.module.scss";
+import "./index.module.scss";
 import App from "./App";
 
-ReactDOM.render(
-  <React.StrictMode>
+render(
+  <StrictMode>
     <App />
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById("root")
 );
