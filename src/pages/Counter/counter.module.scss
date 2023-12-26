@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  background: dodgerblue;
+  border: 10px solid blue;
+  min-height: 452px;
+  min-width: 1000px;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 50px;
+}
+
+.value {
+  margin-bottom: 20px;
+  color: white;
+  font-size: 50px;
+}
+
+.flexBetween {
+  display: flex;
+  justify-content: space-between;
+}
